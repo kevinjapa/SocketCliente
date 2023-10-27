@@ -33,6 +33,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         Login = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cliente 1");
 
         javax.swing.GroupLayout VentanaPrincipalLayout = new javax.swing.GroupLayout(VentanaPrincipal);
         VentanaPrincipal.setLayout(VentanaPrincipalLayout);
@@ -77,9 +78,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginMouseClicked
-       Login l=new Login();
-       VentanaPrincipal.add(l);
-       l.setVisible(true);
+      Login l = new Login();
+      VentanaPrincipal.add(l);
+      l.setVisible(true);
+      VentanaPrincipal.setLocation(200, 100);
+      Login.setVisible(false);
     }//GEN-LAST:event_LoginMouseClicked
 
     /**
