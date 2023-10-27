@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class SocketCliente {
     public static void main(String[] args) {
-        String servidorIP = "172.16.220.101";
+        String servidorIP = "172.16.209.213";
         int servidorPuerto = 8080;
 
         try {
