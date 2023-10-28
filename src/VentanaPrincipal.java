@@ -10,6 +10,7 @@
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
 
+    Login l;
     /**
      * Creates new form VentanaPrincipal
      */
@@ -78,11 +79,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginMouseClicked
-      Login l = new Login();
+      l=new Login();
       VentanaPrincipal.add(l);
+      //VentanaPrincipal.add(l);
       l.setVisible(true);
       VentanaPrincipal.setLocation(200, 100);
       Login.setVisible(false);
+      
     }//GEN-LAST:event_LoginMouseClicked
 
     /**
