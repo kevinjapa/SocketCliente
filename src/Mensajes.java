@@ -12,7 +12,7 @@ import java.awt.Component;
  * @author pedro
  */
 public class Mensajes extends javax.swing.JInternalFrame {
-    Component v;
+    SocketCliente sc;
     /**
      * Creates new form Mensajes
      */
@@ -55,6 +55,11 @@ public class Mensajes extends javax.swing.JInternalFrame {
 
         btnEnviar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnEnviar.setText("Enviar");
+        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviarActionPerformed(evt);
+            }
+        });
 
         txtAreaMensajes.setColumns(20);
         txtAreaMensajes.setRows(5);
@@ -107,6 +112,11 @@ public class Mensajes extends javax.swing.JInternalFrame {
     private void txtMensajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMensajeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMensajeActionPerformed
+
+    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
+        this.sc=new SocketCliente(txtMensaje.getText());
+        
+    }//GEN-LAST:event_btnEnviarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

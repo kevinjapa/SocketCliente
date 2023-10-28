@@ -1,5 +1,7 @@
 
 import java.awt.Component;
+import javax.swing.JDesktopPane;
+import javax.swing.JTextField;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,12 +15,14 @@ import java.awt.Component;
  */
 public class Login extends javax.swing.JInternalFrame {
     
-    Component v=null;
+     private JDesktopPane desktop;
+    private JTextField textField;
     /**
      * Creates new form Login
      */
-    public Login() {
+    public Login(JDesktopPane desktop) {
         initComponents();
+        this.desktop = desktop;
     }
 
     /**
@@ -95,10 +99,12 @@ public class Login extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Mensajes m=new Mensajes(txtUsuario.getText());
         m.setVisible(true);
+        desktop.add(m);
+        m.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
