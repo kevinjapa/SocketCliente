@@ -17,8 +17,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public VentanaPrincipal() {
         initComponents();
     }
-    
-    Login ventanaLogin = new Login();
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -83,19 +82,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< Updated upstream
     private void mnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnIngresarMouseClicked
         l=new Login(this.Ventana);
          Ventana.add(l);
         l.setVisible(true);
     }//GEN-LAST:event_mnIngresarMouseClicked
-=======
-    private void LoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginMouseClicked
-      
-        ventanaLogin.setVisible(true);
-        VentanaPrincipal.add(ventanaLogin);
-    }//GEN-LAST:event_LoginMouseClicked
->>>>>>> Stashed changes
 
     /**
      * @param args the command line arguments
