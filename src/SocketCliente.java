@@ -57,8 +57,7 @@ public class SocketCliente {
             out.println("Usuario "+usuario+" conectado");
             return true;
         } catch (IOException ex) {
-           // Logger.getLogger(SocketCliente.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("------------- Error Revisar el estado del servidor si esta prendido o que este la direccion cambiada a la del servidor------------");
+            Logger.getLogger(SocketCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
             return false;
     }
