@@ -19,11 +19,11 @@ public class Mensajes extends javax.swing.JInternalFrame {
     public Mensajes() {
         initComponents();
     }
-    public Mensajes(String usuario){
+    public Mensajes(String usuario , SocketCliente conexion){
         initComponents();
         lblUsuario.setText(usuario);
         txtAreaMensajes.setEditable(false);
-        sc.conexion(usuario);
+        sc=conexion;
         
     }
 

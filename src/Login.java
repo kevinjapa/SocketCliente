@@ -110,7 +110,7 @@ public class Login extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         if(sc.conexion(txtUsuario.getText())==true){
-            Mensajes m=new Mensajes(txtUsuario.getText());
+            Mensajes m=new Mensajes(txtUsuario.getText(), sc);
             JOptionPane.showMessageDialog(rootPane, "Bienvenido: "+txtUsuario.getText(), "Bienvenido", 1);
             m.setVisible(true);
             desktop.add(m);
