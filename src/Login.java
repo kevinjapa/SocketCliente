@@ -1,6 +1,7 @@
 
 import java.awt.Component;
 import javax.swing.JDesktopPane;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /*
@@ -23,6 +24,9 @@ public class Login extends javax.swing.JInternalFrame {
     public Login(JDesktopPane desktop) {
         initComponents();
         this.desktop = desktop;
+    }
+    public Login() {
+        initComponents();
     }
 
     /**
@@ -51,6 +55,11 @@ public class Login extends javax.swing.JInternalFrame {
         txtUsuario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         tbnSalir.setText("Salir");
+        tbnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbnSalirActionPerformed(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButton1.setText("Ingresar");
@@ -98,11 +107,16 @@ public class Login extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Mensajes m=new Mensajes(txtUsuario.getText());
+        JOptionPane.showMessageDialog(rootPane, "Bienvenido: "+txtUsuario.getText(), "Bienvenido", 1);
         m.setVisible(true);
         desktop.add(m);
         m.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tbnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_tbnSalirActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

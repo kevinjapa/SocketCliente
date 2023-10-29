@@ -27,24 +27,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        VentanaPrincipal = new javax.swing.JDesktopPane();
+        Ventana = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        Login = new javax.swing.JMenuItem();
+        mnIngresar = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WeChat");
 
-        javax.swing.GroupLayout VentanaPrincipalLayout = new javax.swing.GroupLayout(VentanaPrincipal);
-        VentanaPrincipal.setLayout(VentanaPrincipalLayout);
-        VentanaPrincipalLayout.setHorizontalGroup(
-            VentanaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 572, Short.MAX_VALUE)
+        javax.swing.GroupLayout VentanaLayout = new javax.swing.GroupLayout(Ventana);
+        Ventana.setLayout(VentanaLayout);
+        VentanaLayout.setHorizontalGroup(
+            VentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 763, Short.MAX_VALUE)
         );
-        VentanaPrincipalLayout.setVerticalGroup(
-            VentanaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 456, Short.MAX_VALUE)
+        VentanaLayout.setVerticalGroup(
+            VentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 622, Short.MAX_VALUE)
         );
 
         jMenu1.setText("File");
@@ -52,18 +52,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jMenu2.setText("Login");
 
-        Login.setText("Ingresar");
-        Login.addMouseListener(new java.awt.event.MouseAdapter() {
+        mnIngresar.setText("Ingresar");
+        mnIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LoginMouseClicked(evt);
+                mnIngresarMouseClicked(evt);
             }
         });
-        Login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginActionPerformed(evt);
-            }
-        });
-        jMenu2.add(Login);
+        jMenu2.add(mnIngresar);
 
         jMenuBar1.add(jMenu2);
 
@@ -74,30 +69,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(VentanaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Ventana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(VentanaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Ventana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginMouseClicked
-
-      l=new Login(this.VentanaPrincipal);
-      VentanaPrincipal.add(l);
-      //VentanaPrincipal.add(l);
-      l.setVisible(true);
-    }//GEN-LAST:event_LoginMouseClicked
-
-    private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LoginActionPerformed
+    private void mnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnIngresarMouseClicked
+        l=new Login(this.Ventana);
+         Ventana.add(l);
+        l.setVisible(true);
+    }//GEN-LAST:event_mnIngresarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -137,10 +126,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem Login;
-    private javax.swing.JDesktopPane VentanaPrincipal;
+    private javax.swing.JDesktopPane Ventana;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu mnIngresar;
     // End of variables declaration//GEN-END:variables
 }
