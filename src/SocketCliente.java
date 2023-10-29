@@ -10,13 +10,14 @@ import java.util.logging.Logger;
 public class SocketCliente {
     
     public SocketCliente(){
-        
+
     }
     
     public static void main(String[] args ,String mensajeE) {
         String servidorIP = "172.20.10.2";
         int servidorPuerto = 8080;
         String mensajeEnvio=mensajeE;
+        
 
         try {
             Socket clientSocket = new Socket(servidorIP, servidorPuerto);
@@ -59,7 +60,7 @@ public class SocketCliente {
         } catch (IOException ex) {
             Logger.getLogger(SocketCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
-            return false;
+            return false; 
     }
     
     
