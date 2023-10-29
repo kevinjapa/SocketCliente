@@ -63,6 +63,8 @@ public class SocketCliente {
             return false;
     }
     
+    
+    
     public static void prueba(String Mensaje){
         String servidorIP = "172.20.10.2";
         int servidorPuerto = 8080;
