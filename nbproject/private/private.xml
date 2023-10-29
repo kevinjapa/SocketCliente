@@ -9,7 +9,12 @@
             <file>file:/Users/kevinjapa/NetBeansProjects/SocketCliente/src/SocketCliente.java</file>
         </group>
         <group name="TercerCiclo">
+<<<<<<< Updated upstream
             <file>file:/C:/Users/pedro/Documents/GitHub/SocketCliente/src/Contactos.java</file>
+=======
+            <file>file:/C:/Users/pedro/Documents/GitHub/SocketCliente/src/VentanaPrincipal.java</file>
+            <file>file:/C:/Users/pedro/Documents/GitHub/SocketCliente/src/Login.java</file>
+>>>>>>> Stashed changes
             <file>file:/C:/Users/pedro/Documents/GitHub/SocketCliente/src/SocketCliente.java</file>
         </group>
     </open-files>

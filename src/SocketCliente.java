@@ -47,7 +47,7 @@ public class SocketCliente {
         }
     }
     public static boolean conexion(String usuario){
-        String servidorIP = "192.168.18.70";
+        String servidorIP = "192.168.18.27";
         int servidorPuerto = 8080;
         try {
             Socket clientSocket = new Socket(servidorIP, servidorPuerto);
