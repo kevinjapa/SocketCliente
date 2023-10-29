@@ -73,6 +73,7 @@ public class Mensajes extends javax.swing.JInternalFrame {
 
         lblUsuario.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
