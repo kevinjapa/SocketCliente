@@ -46,8 +46,8 @@ public class SocketCliente {
             e.printStackTrace();
         }
     }
-    public static void conexion(String usuario){
-        String servidorIP = "172.20.10.2";
+    public static boolean conexion(String usuario){
+        String servidorIP = "192.168.18.70";
         int servidorPuerto = 8080;
         try {
             Socket clientSocket = new Socket(servidorIP, servidorPuerto);
@@ -55,10 +55,11 @@ public class SocketCliente {
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));//Enviamos los datos
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);//recibimos los datos
             out.println("Usuario "+usuario+" conectado");
+            return true;
         } catch (IOException ex) {
             Logger.getLogger(SocketCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
-            
+            return false;
     }
     
     public static void prueba(String Mensaje){

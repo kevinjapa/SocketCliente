@@ -16,8 +16,10 @@ import javax.swing.JTextField;
  */
 public class Login extends javax.swing.JInternalFrame {
     
-     private JDesktopPane desktop;
+   
+    private JDesktopPane desktop;
     private JTextField textField;
+    SocketCliente sc=new SocketCliente();
     /**
      * Creates new form Login
      */
@@ -106,12 +108,17 @@ public class Login extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Mensajes m=new Mensajes(txtUsuario.getText());
-        JOptionPane.showMessageDialog(rootPane, "Bienvenido: "+txtUsuario.getText(), "Bienvenido", 1);
-        m.setVisible(true);
-        desktop.add(m);
-        m.setVisible(true);
-        this.dispose();
+
+        if(sc.conexion(txtUsuario.getText())==true){
+            Mensajes m=new Mensajes(txtUsuario.getText());
+            JOptionPane.showMessageDialog(rootPane, "Bienvenido: "+txtUsuario.getText(), "Bienvenido", 1);
+            m.setVisible(true);
+            desktop.add(m);
+            m.setVisible(true);
+            this.dispose();
+        }
+        else
+            JOptionPane.showMessageDialog(rootPane, "Error de Conexion ", "Error", 1);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tbnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnSalirActionPerformed

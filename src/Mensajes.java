@@ -12,7 +12,7 @@ import java.awt.Component;
  * @author pedro
  */
 public class Mensajes extends javax.swing.JInternalFrame {
-    SocketCliente sc=new SocketCliente();;
+    SocketCliente sc=new SocketCliente();
     /**
      * Creates new form Mensajes
      */
@@ -24,6 +24,7 @@ public class Mensajes extends javax.swing.JInternalFrame {
         lblUsuario.setText(usuario);
         txtAreaMensajes.setEditable(false);
         sc.conexion(usuario);
+        
     }
 
     /**
