@@ -118,7 +118,7 @@ public class Login extends javax.swing.JInternalFrame {
             this.dispose();
         }
         else
-            JOptionPane.showMessageDialog(rootPane, "Error de Conexion ", "Error", 1);
+            JOptionPane.showMessageDialog(rootPane, "Error de Conexion \n 1. Revisar la Conexion \n 2. Revisar el Estado del Servidor", "Error", 1);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tbnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnSalirActionPerformed
