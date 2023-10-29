@@ -24,7 +24,6 @@ public class Mensajes extends javax.swing.JInternalFrame {
         lblUsuario.setText(usuario);
         txtAreaMensajes.setEditable(false);
         sc=conexion;
-        
     }
 
     /**
