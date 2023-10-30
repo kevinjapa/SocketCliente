@@ -160,17 +160,14 @@ public class Mensajes extends javax.swing.JInternalFrame {
             }
             else{
                 // Si se presiona la tecla Enter, ejecuta el código de envío de mensaje
-                String mensaje = txtMensaje.getText();
-                sc.handleUserInput(mensaje, true);
+                //String mensaje = txtMensaje.getText();
+                //sc.handleUserInput(mensaje, true);
                 txtMensaje.setText("");
-
-                String mensajeOrigen = mensaje;
-                String respuestaChat = ""; // Aquí debes obtener la respuesta del chat
-                String mensajeAnterior = txtAreaMensajes.getText();
-
-                String chatCompleto = mensajeAnterior + "\nTú: " + mensajeOrigen + "\nChatBot: " + respuestaChat;
-                txtAreaMensajes.setText(chatCompleto);
-
+                //String mensajeOrigen = mensaje;
+                //String respuestaChat = ""; // Aquí debes obtener la respuesta del chat
+                //String mensajeAnterior = txtAreaMensajes.getText();
+                //String chatCompleto = mensajeAnterior + "\nTú: " + mensajeOrigen + "\nChatBot: " + respuestaChat;
+                //txtAreaMensajes.setText(chatCompleto);
                 sc.startReceivingMessages(txtAreaMensajes);
             }
         }

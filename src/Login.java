@@ -125,7 +125,6 @@ public class Login extends javax.swing.JInternalFrame {
 
     private void tbnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnSalirActionPerformed
         this.dispose();
-        
     }//GEN-LAST:event_tbnSalirActionPerformed
 
     

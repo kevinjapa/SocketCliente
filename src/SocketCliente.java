@@ -36,7 +36,6 @@ public class SocketCliente extends javax.swing.JInternalFrame {
     public void sendUserNameToServer(String Usuario) {
         writer.println(userName);
     }
-
     public void startReceivingMessages(JTextArea t) {
         this.t=t;
         String capturedOutput;
@@ -73,7 +72,7 @@ public class SocketCliente extends javax.swing.JInternalFrame {
 
     public void handleUserInput(String mensaje, boolean es) {
         BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Conectado al servidor. Escribe 'exit' para salir.");
+        //System.out.println("Conectado al servidor. Escribe 'exit' para salir.");
         String userInputLine;
         while (es==true) {
             userInputLine = mensaje;

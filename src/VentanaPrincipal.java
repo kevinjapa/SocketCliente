@@ -30,9 +30,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         Ventana = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         mnIngresar = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WeChat");
@@ -48,9 +48,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGap(0, 622, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
         jMenu2.setText("Login");
 
         mnIngresar.setText("Ingresar");
@@ -62,6 +59,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenu2.add(mnIngresar);
 
         jMenuBar1.add(jMenu2);
+
+        jMenu1.setText("Salir");
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
