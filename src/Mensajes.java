@@ -1,5 +1,7 @@
 
 import java.awt.Component;
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -63,6 +65,11 @@ public class Mensajes extends javax.swing.JInternalFrame {
         txtMensaje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMensajeActionPerformed(evt);
+            }
+        });
+        txtMensaje.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtMensajeKeyPressed(evt);
             }
         });
 
@@ -135,8 +142,7 @@ public class Mensajes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtMensajeActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-
-        sc.handleUserInput(txtMensaje.getText(),true);
+         sc.handleUserInput(txtMensaje.getText(),true);
         txtMensaje.setText("");
         String mensajeOrigen = txtMensaje.getText();
         String respuestaChat = (mensajeOrigen);
@@ -145,11 +151,30 @@ public class Mensajes extends javax.swing.JInternalFrame {
         String chatCompleto = mensajeAnterior + "\nTú: " + mensajeOrigen + "\nChatBot: " + respuestaChat;
         txtAreaMensajes.setText(chatCompleto);
         sc.startReceivingMessages(this.txtAreaMensajes);
-        // Limpia el campo de entrada txtMensaje
-        
-        // Cuando se presiona el botón "Enviar"
-        
     }//GEN-LAST:event_btnEnviarActionPerformed
+
+    private void txtMensajeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMensajeKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if(txtMensaje.getText().equals("")){
+                JOptionPane.showMessageDialog(rootPane, "Ingrese un mensaje", title, 1);
+            }
+            else{
+                // Si se presiona la tecla Enter, ejecuta el código de envío de mensaje
+                String mensaje = txtMensaje.getText();
+                sc.handleUserInput(mensaje, true);
+                txtMensaje.setText("");
+
+                String mensajeOrigen = mensaje;
+                String respuestaChat = ""; // Aquí debes obtener la respuesta del chat
+                String mensajeAnterior = txtAreaMensajes.getText();
+
+                String chatCompleto = mensajeAnterior + "\nTú: " + mensajeOrigen + "\nChatBot: " + respuestaChat;
+                txtAreaMensajes.setText(chatCompleto);
+
+                sc.startReceivingMessages(txtAreaMensajes);
+            }
+        }
+    }//GEN-LAST:event_txtMensajeKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

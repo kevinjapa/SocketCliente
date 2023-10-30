@@ -50,24 +50,18 @@ public class SocketCliente extends javax.swing.JInternalFrame {
                     ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                     PrintStream printStream = new PrintStream(outputStream);
                     PrintStream originalOut = System.out;
-
                     // Establece la nueva salida estándar
                     System.setOut(printStream);
-
                     // Realiza la operación que genera un mensaje en System.out.println
                     System.out.println(serverResponse);
-                    
                     // Restablece la salida estándar original
                     System.setOut(originalOut);
-
                     // Convierte el contenido del búfer en una cadena (String)
                     String capturedOutput = outputStream.toString();
                     l.add(capturedOutput);
                     String formattedList = String.join(" ", l);
                     t.setText("");
-                    t.setText(formattedList);
-                    
-                        
+                    t.setText(formattedList);                        
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

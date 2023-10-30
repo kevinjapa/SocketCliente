@@ -61,11 +61,11 @@ public class pruebacliente {
         }
     }
     
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         System.out.print("Ingresa tu nombre de usuario: ");
         Scanner scanner = new Scanner(System.in);
         String userName = scanner.nextLine();
         pruebacliente client = new pruebacliente(userName);
         client.start();
-    }
+    }*/
 }
