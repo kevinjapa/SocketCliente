@@ -19,7 +19,7 @@ public class Login extends javax.swing.JInternalFrame {
    
     private JDesktopPane desktop;
     private JTextField textField;
-    SocketCliente sc=new SocketCliente();
+    SocketCliente sc;
     /**
      * Creates new form Login
      */
@@ -109,10 +109,12 @@ public class Login extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        if(sc.conexion(txtUsuario.getText())==true){
+        sc=new SocketCliente();
+        if(sc.connectToServer()==true){
+            //sc.sendUserNameToServer(txtUsuario.getText());
+            sc.handleUserInput(txtUsuario.getText(),true);
             Mensajes m=new Mensajes(txtUsuario.getText(), sc);
             JOptionPane.showMessageDialog(rootPane, "Bienvenido: "+txtUsuario.getText(), "Bienvenido", 1);
-            m.setVisible(true);
             desktop.add(m);
             m.setVisible(true);
             this.dispose();
@@ -123,6 +125,7 @@ public class Login extends javax.swing.JInternalFrame {
 
     private void tbnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnSalirActionPerformed
         this.dispose();
+        
     }//GEN-LAST:event_tbnSalirActionPerformed
 
     

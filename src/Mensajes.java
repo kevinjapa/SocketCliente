@@ -12,18 +12,27 @@ import java.awt.Component;
  * @author pedro
  */
 public class Mensajes extends javax.swing.JInternalFrame {
-    SocketCliente sc=new SocketCliente();
+    SocketCliente sc;
     /**
      * Creates new form Mensajes
      */
-    public Mensajes() {
+    /*public Mensajes() {
         initComponents();
-    }
-    public Mensajes(String usuario , SocketCliente conexion){
+    }*/
+    /*public Mensajes(String usuario , SocketCliente conexion){
         initComponents();
         lblUsuario.setText(usuario);
         txtAreaMensajes.setEditable(false);
         sc=conexion;
+    }*/
+    public Mensajes(String usuario, SocketCliente conexion) {
+        initComponents();
+        lblUsuario.setText(usuario);
+        txtAreaMensajes.setEditable(false);
+        sc = conexion;
+        txtMensaje.setText("");
+        sc.startReceivingMessages(this.txtAreaMensajes);
+        //sc.startReceivingMessages(""); // Iniciar la recepción de mensajes al crear el objeto
     }
 
     /**
@@ -127,7 +136,19 @@ public class Mensajes extends javax.swing.JInternalFrame {
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
 
+        sc.handleUserInput(txtMensaje.getText(),true);
         txtMensaje.setText("");
+        String mensajeOrigen = txtMensaje.getText();
+        String respuestaChat = (mensajeOrigen);
+        String mensajeAnterior = txtAreaMensajes.getText(); // Obtén el contenido actual de txtAreaMensajes
+        // Combina el mensaje de origen y la respuesta del chat
+        String chatCompleto = mensajeAnterior + "\nTú: " + mensajeOrigen + "\nChatBot: " + respuestaChat;
+        txtAreaMensajes.setText(chatCompleto);
+        sc.startReceivingMessages(this.txtAreaMensajes);
+        // Limpia el campo de entrada txtMensaje
+        
+        // Cuando se presiona el botón "Enviar"
+        
     }//GEN-LAST:event_btnEnviarActionPerformed
 
 

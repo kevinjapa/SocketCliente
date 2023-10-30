@@ -9,13 +9,14 @@
  * @author pedro
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-
+    boolean btnPulsa;
     Login l;
     /**
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal() {
         initComponents();
+        btnPulsa=true;
     }
 
     /**
@@ -83,9 +84,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnIngresarMouseClicked
-        l=new Login(this.Ventana);
-         Ventana.add(l);
-        l.setVisible(true);
+        if(btnPulsa==true){
+            btnPulsa=false;
+            l=new Login(this.Ventana);
+            Ventana.add(l);
+            l.setVisible(true);
+            mnIngresar.setEnabled(false);
+        }
+        
     }//GEN-LAST:event_mnIngresarMouseClicked
 
     /**

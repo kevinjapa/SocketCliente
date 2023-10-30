@@ -1,71 +1,107 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.*;
+import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JTextArea;
 
-public class SocketCliente {
-    
-    public SocketCliente(){
+public class SocketCliente extends javax.swing.JInternalFrame {
+    //public Mensajes m;
+    public ArrayList l=new ArrayList();
+    private String userName;
+    private Socket socket;
+    private PrintWriter writer;
+    private BufferedReader reader;
+    String Usuario;
+    public JTextArea t;
 
+    public SocketCliente(Mensajes m) {
+        //this.m = m;
     }
-    
-    public static void main(String[] args ,String mensajeE) {
-        
+
+    public SocketCliente() {
     }
-    public static boolean conexion(String usuario){
-        String servidorIP = "192.168.18.27";
-        int servidorPuerto = 8080;
+
+    public boolean connectToServer() {
         try {
-            Socket clientSocket = new Socket(servidorIP, servidorPuerto);
-            System.out.println("Conectado al servidor en la Direccion:" + servidorIP + " Puerto:" + servidorPuerto);
-            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));//Enviamos los datos
-            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);//recibimos los datos
-            out.println("Usuario "+usuario+" conectado");
+            socket = new Socket("localhost", 8080);
+            reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            writer = new PrintWriter(socket.getOutputStream(), true);
             return true;
-        } catch (IOException ex) {
-            Logger.getLogger(SocketCliente.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-            return false; 
+        return false;
     }
-    
-    
-    /*
-    public static void prueba(String Mensaje){
-        String servidorIP = "172.20.10.2";
-        int servidorPuerto = 8080;
-        String mensajeEnvio=Mensaje;
 
+    public void sendUserNameToServer(String Usuario) {
+        writer.println(userName);
+    }
+
+    public void startReceivingMessages(JTextArea t) {
+        this.t=t;
+        String capturedOutput;
+        Thread receiveThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String serverResponse;
+                try {
+                    while ((serverResponse = reader.readLine()) != null) {
+                        // En lugar de imprimir en la consola, enviar el mensaje a la interfaz gráfica
+                    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                    PrintStream printStream = new PrintStream(outputStream);
+                    PrintStream originalOut = System.out;
+
+                    // Establece la nueva salida estándar
+                    System.setOut(printStream);
+
+                    // Realiza la operación que genera un mensaje en System.out.println
+                    System.out.println(serverResponse);
+                    
+                    // Restablece la salida estándar original
+                    System.setOut(originalOut);
+
+                    // Convierte el contenido del búfer en una cadena (String)
+                    String capturedOutput = outputStream.toString();
+                    l.add(capturedOutput);
+                    String formattedList = String.join(" ", l);
+                    t.setText("");
+                    t.setText(formattedList);
+                    
+                        
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        receiveThread.start();
+    }
+
+    public void handleUserInput(String mensaje, boolean es) {
+        BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Conectado al servidor. Escribe 'exit' para salir.");
+        String userInputLine;
+        while (es==true) {
+            userInputLine = mensaje;
+            if (userInputLine.equalsIgnoreCase("exit")) {
+                break;
+            }
+            writer.println(userInputLine);
+            es=false;
+        }
+    }
+
+    private void closeConnection() {
         try {
-            Socket clientSocket = new Socket(servidorIP, servidorPuerto);
-            System.out.println("Conectado al servidor en la Direccion:" + servidorIP + " Puerto:" + servidorPuerto);
-
-            // Aquí puedes manejar la comunicación con el servidor
-            // Por ejemplo, puedes usar BufferedReader y PrintWriter para enviar y recibir datos.
-            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));//Enviamos los datos
-            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);//recibimos los datos
-
-            // Inicia un bucle para la comunicación continua
-            while (true) {
-                // Leer la entrada del usuario o realizar alguna lógica
-                // Por ejemplo, puedes usar Scanner para leer la entrada del usuario
-                Scanner scanner = new Scanner(System.in);
-                System.out.print("Escribe un mensaje al servidor: ");
-                String mensaje = mensajeEnvio;//scanner.nextLine();
-
-                // Enviar el mensaje al servidor
-                out.println(mensaje);
-
-                // Recibir la respuesta del servidor
-                String respuesta = in.readLine();
-                System.out.println("Servidor dice: " + respuesta);
+            if (socket != null) {
+                socket.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    */
+    
+    
+    
+    
 }
